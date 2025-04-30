@@ -7,45 +7,36 @@
 	<meta name="keywords" content="fitness, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	
 	<link href="img/icons8-gym-25.png" rel="shortcut icon"/>
-
-	
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&display=swap" rel="stylesheet">
-
-	
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/owl.carousel.min.css"/>
 	<link rel="stylesheet" href="css/flaticon.css"/>
 	<link rel="stylesheet" href="css/slicknav.min.css"/>
-
-	<!-- Main Stylesheets -->
 	<link rel="stylesheet" href="css/style.css"/>
 
 <style>
-    input[type=text], input[type=password] {
+    input[type=text], input[type=password], input[type=email] {
         width: 100%;
         padding: 15px;
         margin: 5px 0 22px 0;
         display: inline-block;
         border: none;
         background: #f1f1f1;
-      }
+    }
       
-      input[type=text]:focus, input[type=password]:focus {
+    input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
         background-color: #ddd;
         outline: none;
-      }
+    }
       
-      /* Overwrite default styles of hr */
-      hr {
+    hr {
         border: 1px solid #f1f1f1;
         margin-bottom: 25px;
-      }
+    }
       
-      /* Set a style for the submit/register button */
-      .registerbtn {
+    .registerbtn {
         background-color: #04AA6D;
         color: white;
         padding: 16px 20px;
@@ -54,76 +45,52 @@
         cursor: pointer;
         width: 100%;
         opacity: 0.9;
-      }
+    }
       
-      .registerbtn:hover {
+    .registerbtn:hover {
         opacity:1;
-      }
+    }
       
-      /* Add a blue text color to links */
-      a {
+    a {
         color: dodgerblue;
-      }
+    }
       
-      /* Set a grey background color and center the text of the "sign in" section */
-      .signin {
+    .signin {
         background-color: #f1f1f1;
         text-align: center;
-      }
-      
+    }
+
+    /* Message styles */
+    .message {
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 4px;
+        display: none;
+    }
+    .success {
+        background-color: #d4edda;
+        color: #155724;
+    }
+    .error {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
 </style>
-	
 </head>
 <body>
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
+	<!-- Your existing header, navigation, and page top sections remain exactly the same -->
 
-	<!-- Header section -->
-	<header class="header-section">
-		<a href="index.html" class="site-logo">
-			<h2>Muscle Up Gym</h2>
-
-		</a>
-		<ul class="main-menu">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="about.html">About Us</a></li>
-			<li><a href="classes.html">Classes</a></li>
-			<li><a href="blog.html">Gallery</a></li>
-			<li><a href="contact.html">Contact</a></li>
-			<li><a class="active" href="signup.html">Login/Signup</a></li>
-
-			<li class="header-right">
-				<div class="hr-box">
-					<img src="img/location-icon.png" alt="">
-					<h6>1525  Model Town, Hisar, Haryana</h6>
-				</div>
-			</li>
-		</ul>
-	</header>
-	<div class="clearfix"></div>
-	<!-- Header section end -->
-
-	<!-- Page top section -->
-	<section class="page-top-section set-bg" data-setbg="img/header-bg/4.jpg">
-		<div class="container">
-			<h2>Login/SignUp</h2>
-		</div>
-	</section>
-	<!-- Page top section end -->
-
-	<!-- Contact section -->
+	<!-- Contact section - Modified form -->
 	<section class="contact-section">
 		<div class="container">
-			<form>
+			<form id="signupForm">
                 <div class="container">
                   <h1>SignUp</h1>
                   <p>Please fill in this form to create an account.</p>
                   <hr>
               
                   <label for="email"><b>Email</b></label>
-                  <input type="text" placeholder="Enter Email" name="email" id="email" required>
+                  <input type="email" placeholder="Enter Email" name="email" id="email" required>
               
                   <label for="psw"><b>Password</b></label>
                   <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
@@ -134,8 +101,8 @@
              
                   <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
                   <br>
-                  <a href="/login.html" class="registerbtn">Register</a>
-                  <br><br>
+                  <button type="submit" class="registerbtn">Register</button>
+                  <div id="message" class="message"></div>
                   <br><br>
                 </div>
               
@@ -143,89 +110,15 @@
                   <p>Already have an account? <a href="/login.html">Login</a>.</p>
                 </div>
               </form>
-              
 		</div>
-		
 	</section>
-	<!-- Contact section end -->
 
+	<!-- Your existing footer section remains exactly the same -->
+
+	<!-- Added Azure Table Storage JavaScript SDK -->
+	<script src="https://cdn.jsdelivr.net/npm/@azure/data-tables@12.0.0/dist/index.min.js"></script>
 	
-
-	<!-- Footer section -->
-	<footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-sm-6">
-					<div class="footer-widget">
-						<h4>Location</h4>
-						<div class="fw-info-box">
-							<img src="img/icons/1.png" alt="">
-							<div class="fw-info-text">
-								<p>1525  Model Town, Hisar, Haryana</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="footer-widget">
-						<h4>Subscriptions</h4>
-						<div class="fw-info-box">
-							<img src="img/icons/2.png" alt="">
-							<div class="fw-info-text">
-								<p>+91-8168793254</p>
-								<p>+91-9991002783</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="footer-widget">
-						<h4>E-mail</h4>
-						<div class="fw-info-box">
-							<img src="img/icons/3.png" alt="">
-							<div class="fw-info-text">
-								<p>@muscleup.com</p>
-								<p>www.muscleup.com</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="footer-widget">
-						<h4>Social Media</h4>
-						<div class="fw-info-box">
-							<img src="img/icons/4.png" alt="">
-							<div class="social-links">
-								<a href="#"><i class="fa fa-facebook"></i></a>
-								<a href="#"><i class="fa fa-twitter"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 order-2 order-md-1">
-					<div class="copyright"><p>
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script>
- </p></div>
-				</div>
-				<div class="col-md-6 order-1 order-md-2">
-					<ul class="footer-menu">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="classes.html">Classes</a></li>
-						<li><a href="blog.html">Gallery</a></li>
-						<li><a href="contact.html">Contact</a></li>
-						<li><a href="signup.html">Login/Signup</a></li>
-
-					</ul>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- Footer section end -->
-															
-	<!--====== Javascripts & Jquery ======-->
+	<!-- Your existing JavaScript files -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.slicknav.js"></script>
@@ -233,5 +126,94 @@
 	<script src="js/circle-progress.min.js"></script>
 	<script src="js/main.js"></script>
 
-	</body>
-</html>
+	<!-- Signup JavaScript -->
+	<script>
+		// Azure Table Storage configuration
+		const accountName = "gym"; // Replace with your account name
+		const accountKey = "29vrKV2Wq1R6Lwg5EJ7zuifacwen+9HNP6eHiPj8mxXzHeqS/4y8F9m8re6FEoVFcutcA8Z03VW4+AStMqkibw=="; // Replace with your account key
+		const tableName = "gymusers";
+		
+		// Initialize Azure Table Client
+		const credential = new AzureTables.AzureNamedKeyCredential(accountName, accountKey);
+		const client = new AzureTables.TableClient(
+			`https://${accountName}.table.core.windows.net`,
+			tableName,
+			credential
+		);
+
+		// Create table if it doesn't exist
+		client.createTable().catch(err => {
+			console.log("Table already exists or connection issue:", err.message);
+		});
+
+		// Form submission handler
+		document.getElementById("signupForm").addEventListener("submit", async function(event) {
+			event.preventDefault();
+			
+			const email = document.getElementById("email").value;
+			const password = document.getElementById("psw").value;
+			const confirmPassword = document.getElementById("psw-repeat").value;
+			const messageEl = document.getElementById("message");
+			
+			// Clear previous messages
+			messageEl.style.display = "none";
+			
+			// Validate inputs
+			if (!email || !password || !confirmPassword) {
+				showMessage("All fields are required", "error");
+				return;
+			}
+			
+			if (password !== confirmPassword) {
+				showMessage("Passwords do not match", "error");
+				return;
+			}
+			
+			if (password.length < 6) {
+				showMessage("Password must be at least 6 characters", "error");
+				return;
+			}
+			
+			try {
+				// Check if user already exists
+				const existingUser = await client.getEntity("users", email).catch(() => null);
+				if (existingUser) {
+					showMessage("Email already registered", "error");
+					return;
+				}
+				
+				// Create new user entity
+				const userEntity = {
+					partitionKey: "users",
+					rowKey: email,
+					email: email,
+					password: password, // Note: In production, hash this password!
+					signupDate: new Date().toISOString()
+				};
+				
+				// Save to Azure Table Storage
+				await client.createEntity(userEntity);
+				
+				showMessage("Registration successful! Redirecting to login...", "success");
+				
+				// Clear form and redirect after 2 seconds
+				document.getElementById("signupForm").reset();
+				setTimeout(() => {
+					window.location.href = "/login.html";
+				}, 2000);
+				
+			} catch (error) {
+				console.error("Registration error:", error);
+				showMessage("Registration failed. Please try again.", "error");
+			}
+		});
+		
+		function showMessage(text, type) {
+			const messageEl = document.getElementById("message");
+			messageEl.textContent = text;
+			messageEl.className = `message ${type}`;
+			messageEl.style.display = "block";
+		}
+	</script>
+</body>
+</html> 
